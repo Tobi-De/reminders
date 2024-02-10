@@ -6,3 +6,5 @@ django-admin-interface
 whitenoise
 black
 reorder-python-imports
+django-anymail
+django-environ

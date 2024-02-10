@@ -2,12 +2,18 @@ import multiprocessing
 import os
 from pathlib import Path
 
+import environ
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env()
+environ.Env.read_env(BASE_DIR / ".env")
+
 # 1. Django Core Settings
 
 # Dangerous: disable host header validation
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["*"])
 
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 DATABASES = {
     "default": {
@@ -16,7 +22,7 @@ DATABASES = {
     },
 }
 
-DEBUG = os.environ.get("DEBUG", "1") == "1"
+DEBUG = env.bool("DEBUG", default=False)
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -52,7 +58,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "reminders.urls"
 
-SECRET_KEY = os.getenv("SECRET_KEY","django-insecure-uv)=h-%4@0r3+_%8f^$*kj-(a&ifuk63j1*y(s()$%rqrdzv2p")
+SECRET_KEY = env(
+    "SECRET_KEY",
+    default="django-insecure-uv)=h-%4@0r3+_%8f^$*kj-(a&ifuk63j1*y(s()$%rqrdzv2p",
+)
 
 TEMPLATES = [
     {
@@ -101,7 +110,13 @@ else:
     }
 
 if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = ["https://reminders.service.dotfm.me", "http://reminders.service.dotfm.me"]
+    CSRF_TRUSTED_ORIGINS = env.list(
+        "CSRF_TRUSTED_ORIGINS",
+        default=[
+            "https://reminders.service.dotfm.me",
+            "http://reminders.service.dotfm.me",
+        ],
+    )
 
 # django-q2
 Q_CLUSTER = {
@@ -114,7 +129,7 @@ Q_CLUSTER = {
     "orm": "default",
 }
 
-SUPERUSER_USERNAME = os.environ.get("SUPERUSER_USERNAME", "tobi")
-SUPERUSER_PASSWORD = os.environ.get("SUPERUSER_PASSWORD", "dt")
+SUPERUSER_USERNAME = env("SUPERUSER_USERNAME", default="tobi")
+SUPERUSER_PASSWORD = env("SUPERUSER_PASSWORD", default="dt")
 
-TEST_EMAIL_ENABLED = os.environ.get("TEST_EMAIL_ENABLED", "1") == "1"
+TEST_EMAIL_ENABLED = env.bool("TEST_EMAIL_ENABLED", default=False)
