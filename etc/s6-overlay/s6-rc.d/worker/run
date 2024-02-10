@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /app
+/opt/pysetup/.venv/bin/python manage.py setup_periodic_tasks
+/opt/pysetup/.venv/bin/python manage.py qcluster

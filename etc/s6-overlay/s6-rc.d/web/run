@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /app
+/opt/pysetup/.venv/bin/python manage.py migrate
+/opt/pysetup/.venv/bin/gunicorn wsgi:application --bind 0.0.0.0:8000 --workers 2

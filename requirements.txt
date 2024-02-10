@@ -1,0 +1,8 @@
+django
+gunicorn
+django-q2
+django-q-registry
+django-admin-interface
+whitenoise
+black
+reorder-python-imports
