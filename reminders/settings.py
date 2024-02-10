@@ -52,7 +52,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "reminders.urls"
 
-SECRET_KEY = "django-insecure-uv)=h-%4@0r3+_%8f^$*kj-(a&ifuk63j1*y(s()$%rqrdzv2p"
+SECRET_KEY = os.getenv("SECRET_KEY","django-insecure-uv)=h-%4@0r3+_%8f^$*kj-(a&ifuk63j1*y(s()$%rqrdzv2p")
 
 TEMPLATES = [
     {
