@@ -41,7 +41,7 @@ RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
 RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz
 
 # copy config files, s6 + litestream
-COPY etc  /etc
+COPY deploy/etc  /etc
 
 # The kill grace time is set to zero because our app handles shutdown through SIGTERM.
 ENV S6_KILL_GRACETIME=0
