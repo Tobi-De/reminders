@@ -101,7 +101,7 @@ else:
     }
 
 if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = ["reminders.dotfm.me"]
+    CSRF_TRUSTED_ORIGINS = ["https://reminders.service.dotfm.me", "http://reminders.service.dotfm.me"]
 
 # django-q2
 Q_CLUSTER = {
