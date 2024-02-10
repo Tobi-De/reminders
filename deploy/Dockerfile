@@ -33,21 +33,19 @@ RUN python manage.py collectstatic --no-input
 # Stage 3: Run service
 FROM python-base as production
 
-# s6 install
+# s6 config
 COPY --from=builder-base /usr/bin/xz /usr/bin/xz
 COPY --from=builder-base /tmp/s6-overlay-noarch.tar.xz /tmp/s6-overlay-noarch.tar.xz
 COPY --from=builder-base /tmp/s6-overlay-x86_64.tar.xz /tmp/s6-overlay-x86_64.tar.xz
 RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
 RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz
-
-# copy config files, s6 + litestream
 COPY deploy/etc  /etc
 
 # The kill grace time is set to zero because our app handles shutdown through SIGTERM.
 ENV S6_KILL_GRACETIME=0
 
 # Sync disks is enabled so that data is properly flushed.
-ENV S6_SYNC_DISKS=1
+# ENV S6_SYNC_DISKS=1
 
 COPY --from=builder-base $VENV_PATH $VENV_PATH
 COPY --from=builder-base /app/staticfiles /app/staticfiles
