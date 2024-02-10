@@ -26,6 +26,7 @@ base_kwargs = {
 )
 def send_test_email():
     if settings.TEST_EMAIL_ENABLED:
+        print("Sending test email...")
         send_mail(
             subject="Test email from reminders",
             message="This is a test email.",
@@ -35,19 +36,14 @@ def send_test_email():
 
 @register_task(
     name="Helmintox",
-    schedule_type=Schedule.MONTHLY,
+    schedule_type=Schedule.QUARTERLY,
     next_run=timezone.datetime(2024, 3, 5, 6, 0, 0),
 )
 def helmintox_reminder():
+    print("Sending helmintox reminder...")
     send_mail(
         subject="Buy helmintox",
         message="Go get some helmintox.",
         **base_kwargs,
     )
 
-
-with suppress(OperationalError):
-    if not User.objects.filter(username=settings.SUPERUSER_USERNAME).exists():
-        User.objects.create_superuser(
-            username=settings.SUPERUSER_USERNAME, password=settings.SUPERUSER_PASSWORD
-        )
