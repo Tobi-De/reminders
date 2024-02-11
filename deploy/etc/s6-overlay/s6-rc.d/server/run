@@ -1,5 +1,5 @@
 #!/command/with-contenv execlineb
 
 cd /app
-foreground { redirfd -r 0 create_user.py python manage.py shell }
+foreground { falco setup-admin }
 gunicorn wsgi:application --config="deploy/gunicorn.conf.py"

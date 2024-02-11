@@ -8,3 +8,4 @@ black
 reorder-python-imports
 django-anymail[amazon-ses]
 django-environ
+falco-cli
