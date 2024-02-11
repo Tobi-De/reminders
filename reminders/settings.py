@@ -14,15 +14,16 @@ environ.Env.read_env(BASE_DIR / ".env")
 # Dangerous: disable host header validation
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["*"])
 
+DEBUG = env.bool("DEBUG", default=False)
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "db.sqlite3",
+        "NAME": "db.sqlite3" if DEBUG else "/data/db" # same as litestream
     },
 }
 
-DEBUG = env.bool("DEBUG", default=False)
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
