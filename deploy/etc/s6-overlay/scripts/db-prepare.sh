@@ -1,4 +1,4 @@
-#!/command/with-contenv sh
+#!/command/with-contenv bash
 
 # Restore the database if it does not already exist.
 if [ -f /data/db ]; then
