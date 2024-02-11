@@ -2,4 +2,4 @@
 
 cd /app
 foreground { redirfd -r 0 create_user.py python manage.py shell }
-gunicorn wsgi:application --bind 0.0.0.0:8000 --workers 2
+gunicorn wsgi:application --config="deploy/gunicorn.conf.py"

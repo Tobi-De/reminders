@@ -42,5 +42,5 @@ COPY --from=builder-base /app/staticfiles /app/staticfiles
 COPY deploy/etc  /etc
 COPY . /app
 
-EXPOSE 8000
+EXPOSE 80
 ENTRYPOINT ["/init"]
