@@ -10,4 +10,5 @@ fi
 
 # Migrate the database
 cd /app
+mkdr /data
 python manage.py migrate
