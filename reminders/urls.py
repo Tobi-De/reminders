@@ -37,7 +37,9 @@ def send_test_email():
 @register_task(
     name="Helmintox",
     schedule_type=Schedule.QUARTERLY,
-    next_run=timezone.datetime(2024, 3, 5, 6, 0, 0),
+    next_run=timezone.now().replace(
+        year=2024, month=3, day=5, hour=6, minute=0, second=0
+    ),
 )
 def helmintox_reminder():
     print("Sending helmintox reminder...")
@@ -46,4 +48,3 @@ def helmintox_reminder():
         message="Go get some helmintox.",
         **base_kwargs,
     )
-

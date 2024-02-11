@@ -37,9 +37,9 @@ RUN python manage.py collectstatic --no-input
 FROM python-base as production
 
 COPY --from=builder-base /s6-install /
-COPY deploy/etc  /etc
 COPY --from=builder-base $VENV_PATH $VENV_PATH
 COPY --from=builder-base /app/staticfiles /app/staticfiles
+COPY deploy/etc  /etc
 COPY . /app
 
 EXPOSE 8000
