@@ -9,6 +9,7 @@ ENV PYTHONUNBUFFERED=1 \
     VENV_PATH="/opt/pysetup/.venv" \
     S6_KILL_GRACETIME=0 \
     S6_OVERLAY_VERSION=3.1.6.2 \
+    S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0 \
     S6_SYNC_DISKS=1 \
     LITESTREAM_VERSION=0.3.13 \
     REPLICA_URL="s3://dotfm.litestream/reminders/db"
