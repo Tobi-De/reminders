@@ -11,7 +11,7 @@ ENV PYTHONUNBUFFERED=1 \
     S6_OVERLAY_VERSION=3.1.6.2 \
     S6_SYNC_DISKS=1 \
     LITESTREAM_VERSION=0.3.13 \
-    REPLICA_URL="s3://dotfm.litestream/reminders/db.sqlite3"
+    REPLICA_URL="s3://dotfm.litestream/reminders/db"
 
 ENV PATH="$VENV_PATH/bin:$PATH" 
 

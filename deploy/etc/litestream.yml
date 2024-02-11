@@ -1,4 +1,4 @@
 dbs:
   - path: /data/db
     replicas:
-      - url: s3://dotfm.litestream/reminders/db.sqlite3
+      - url: s3://dotfm.litestream/reminders/db
