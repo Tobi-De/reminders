@@ -142,3 +142,22 @@ def helmintox_reminder():
         **base_kwargs,
     )
 
+@register_task(
+    name="Daily journal",
+    schedule_type=Schedule.DAILY,
+    next_run=timezone.now().replace(
+        year=2024, month=2, day=12, hour=9, minute=0, second=0
+    ),
+)
+def helmintox_reminder():
+    print("Daily Journal")
+    d = timezone.now().date().strftime("%Y-%m-%d")
+    send_mail(
+        subject=f"Journal of {d}",
+        message=f"Write something - {d} - https://github.com/Tobi-De/second-brain/new/main/Journal/Daily",
+        **base_kwargs,
+    )
+
+
+
+
