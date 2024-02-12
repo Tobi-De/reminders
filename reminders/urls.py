@@ -48,3 +48,97 @@ def helmintox_reminder():
         message="Go get some helmintox.",
         **base_kwargs,
     )
+
+
+@register_task(
+    name="Difrarel",
+    schedule_type=Schedule.MONTHLY,
+    next_run=timezone.now().replace(
+        year=2024, month=3, day=1, hour=6, minute=0, second=0
+    ),
+)
+def helmintox_reminder():
+    print("Sending Difrarel reminder...")
+    send_mail(
+        subject="Buy some difrarel.",
+        message="Go get some difrarel, you eyes my man.",
+        **base_kwargs,
+    )
+
+
+@register_task(
+    name="Kenny birthday",
+    schedule_type=Schedule.YEARLY,
+    next_run=timezone.now().replace(
+        year=2024, month=2, day=22, hour=6, minute=0, second=0
+    ),
+)
+def helmintox_reminder():
+    print("Kenny birthday")
+    send_mail(
+        subject="Kenny birthday",
+        message="Lives on the other side of the globe but still one my best friends.",
+        **base_kwargs,
+    )
+
+
+@register_task(
+    name="Russell birthday",
+    schedule_type=Schedule.YEARLY,
+    next_run=timezone.now().replace(
+        year=2024, month=11, day=9, hour=6, minute=0, second=0
+    ),
+)
+def helmintox_reminder():
+    print("Russell birthday")
+    send_mail(
+        subject="Russell birthday",
+        message="A dumb bitch but my best friend.",
+        **base_kwargs,
+    )
+
+@register_task(
+    name="Gédéon birthday",
+    schedule_type=Schedule.YEARLY,
+    next_run=timezone.now().replace(
+        year=2024, month=6, day=14, hour=6, minute=0, second=0
+    ),
+)
+def helmintox_reminder():
+    print("Gédéon birthday")
+    send_mail(
+        subject="Gédéon birthday",
+        message="For some reason, we are close enought that he probably don't care that I wish him a happy birthday.",
+        **base_kwargs,
+    )
+
+@register_task(
+    name="Kossoun birthday",
+    schedule_type=Schedule.YEARLY,
+    next_run=timezone.now().replace(
+        year=2024, month=3, day=8, hour=6, minute=0, second=0
+    ),
+)
+def helmintox_reminder():
+    print("Kossoun birthday")
+    send_mail(
+        subject="Kossoun birthday",
+        message="A cousin that I'm close to, that's rare.",
+        **base_kwargs,
+    )
+
+@register_task(
+    name="Kim birthday",
+    schedule_type=Schedule.YEARLY,
+    next_run=timezone.now().replace(
+        year=2024, month=10, day=26, hour=6, minute=0, second=0
+    ),
+)
+def helmintox_reminder():
+    print("Kim birthday")
+    send_mail(
+        subject="Kim birthday",
+        message="A colleague and a friend",
+        **base_kwargs,
+    )
+
