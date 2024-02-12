@@ -146,7 +146,7 @@ def helmintox_reminder():
     name="Daily journal",
     schedule_type=Schedule.DAILY,
     next_run=timezone.now().replace(
-        year=2024, month=2, day=12, hour=9, minute=0, second=0
+        year=2024, month=2, day=12, hour=21, minute=0, second=0
     ),
 )
 def helmintox_reminder():
