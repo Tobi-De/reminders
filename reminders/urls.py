@@ -57,7 +57,7 @@ def helmintox_reminder():
         year=2024, month=3, day=1, hour=6, minute=0, second=0
     ),
 )
-def helmintox_reminder():
+def difrarel_reminder():
     print("Sending Difrarel reminder...")
     send_mail(
         subject="Buy some difrarel.",
@@ -73,7 +73,7 @@ def helmintox_reminder():
         year=2024, month=2, day=22, hour=6, minute=0, second=0
     ),
 )
-def helmintox_reminder():
+def kenny_reminder():
     print("Kenny birthday")
     send_mail(
         subject="Kenny birthday",
@@ -89,7 +89,7 @@ def helmintox_reminder():
         year=2024, month=11, day=9, hour=6, minute=0, second=0
     ),
 )
-def helmintox_reminder():
+def russell_reminder():
     print("Russell birthday")
     send_mail(
         subject="Russell birthday",
@@ -104,7 +104,7 @@ def helmintox_reminder():
         year=2024, month=6, day=14, hour=6, minute=0, second=0
     ),
 )
-def helmintox_reminder():
+def gedeon_reminder():
     print("Gédéon birthday")
     send_mail(
         subject="Gédéon birthday",
@@ -119,7 +119,7 @@ def helmintox_reminder():
         year=2024, month=3, day=8, hour=6, minute=0, second=0
     ),
 )
-def helmintox_reminder():
+def kossoun_reminder():
     print("Kossoun birthday")
     send_mail(
         subject="Kossoun birthday",
@@ -134,7 +134,7 @@ def helmintox_reminder():
         year=2024, month=10, day=26, hour=6, minute=0, second=0
     ),
 )
-def helmintox_reminder():
+def Kim_reminder():
     print("Kim birthday")
     send_mail(
         subject="Kim birthday",
@@ -149,7 +149,7 @@ def helmintox_reminder():
         year=2024, month=2, day=12, hour=21, minute=0, second=0
     ),
 )
-def helmintox_reminder():
+def journal_reminder():
     print("Daily Journal")
     d = timezone.now().date().strftime("%Y-%m-%d")
     send_mail(
@@ -158,6 +158,21 @@ def helmintox_reminder():
         **base_kwargs,
     )
 
+
+@register_task(
+    name="Mohamed journal",
+    schedule_type=Schedule.DAILY,
+    next_run=timezone.now().replace(
+        year=2024, month=3, day=20, hour=6, minute=0, second=0
+    ),
+)
+def helm_reminder():
+    print("Mohamed Birthday")
+    send_mail(
+        subject=f"Mohamed Birthday",
+        message=f"The only i'm still close to from GLIS",
+        **base_kwargs,
+    )
 
 
 
