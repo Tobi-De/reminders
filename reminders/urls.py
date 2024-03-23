@@ -160,8 +160,8 @@ def journal_reminder():
 
 
 @register_task(
-    name="Mohamed journal",
-    schedule_type=Schedule.DAILY,
+    name="Mohamed birthday",
+    schedule_type=Schedule.YEARLY,
     next_run=timezone.now().replace(
         year=2024, month=3, day=20, hour=6, minute=0, second=0
     ),
