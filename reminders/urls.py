@@ -166,7 +166,7 @@ def journal_reminder():
         year=2024, month=3, day=20, hour=6, minute=0, second=0
     ),
 )
-def helm_reminder():
+def mohamed_reminder():
     print("Mohamed Birthday")
     send_mail(
         subject=f"Mohamed Birthday",
